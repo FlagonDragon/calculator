@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    border: 4px solid pink
+
+}
+
+.calculator {
+    border: 4px solid orangered;
+    margin: 40px;
+}
+
+.display {
+    border: 4px solid green;
+    margin: 5px;
+}
+
+.buttons-container {
+    border: 4px solid blue;
+    margin: 5px;
+}
