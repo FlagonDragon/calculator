@@ -50,7 +50,7 @@ num2 = '';
 
 operator = '';
 
-//variables above
+// variables above
 
 // functions below 
 
@@ -72,6 +72,16 @@ switch (operator) {
 }
 
 console.log(operate(400,500,'*'));
+
+display = document.querySelector('.display')
+btn1 = document.querySelector('#one')
+
+btn1.addEventListener('click', () => {
+    
+    display.textContent = '1';
+    
+});
+
 
 
 // functions above
