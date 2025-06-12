@@ -33,8 +33,14 @@ function multiply(a,b) {
 function divide(a,b) {
 
     console.log(`Dividing ${a}/${b}:`);
+
+    if (b === 0) {
+        alert('?????')
+        return 'stop it.'
+    } else {
+        return a / b;
+    }
     
-    return a / b;
 
 };
 
@@ -44,11 +50,8 @@ function divide(a,b) {
 
 // variables below
 
-num1 = '';
+variables = {num1: 0, num2: 0, operator: ''};
 
-num2 = '';
-
-operator = '';
 
 // variables above
 
@@ -73,14 +76,96 @@ switch (operator) {
 
 console.log(operate(400,500,'*'));
 
-display = document.querySelector('.display')
-btn1 = document.querySelector('#one')
+display = document.querySelector('.display');
+numbers = document.querySelectorAll('.number');
+operators = document.querySelectorAll('.operator');
+equal = document.querySelector('#equal');
+clear = document.querySelector('#clear');
+delBtn = document.querySelector('#delBtn');
+decimal = document.querySelector('#decimal');
 
-btn1.addEventListener('click', () => {
+
+clickedTrue = false;
+
+numbers.forEach((number) => {
+
+    number.addEventListener('click', () => {
+
+        if (display.textContent === variables.operator) {
+            display.textContent = '';
+        };
     
-    display.textContent = '1';
-    
+        display.textContent += number.textContent;
+
+        switch (clickedTrue) {
+            case false:
+                variables.num1 = +display.textContent;
+            case true:
+                variables.num2 = +display.textContent;
+        };
+
+        if (!(display.textContent.includes('.'))) {
+
+            decimal.textContent = '.';
+
+        } else if (display.textContent.includes('.')) {
+        
+            decimal.disabled = true;
+
+        };
+
+    });
+  
 });
+
+operators.forEach((operator) => {
+
+    operator.addEventListener('click', () => {
+
+    clickedTrue = true
+
+    variables.operator = operator.textContent;
+
+    display.textContent = variables.operator;
+    
+    });
+  
+});
+
+equal.addEventListener('click', () => {
+
+    display.textContent = operate(variables.num1,variables.num2,variables.operator);
+
+    variables.num1 = 0;
+    variables.num2= 0;
+    variables.operator = '';
+    clickedTrue = false;
+
+});
+
+clear.addEventListener('click', () => {
+
+    display.textContent = '';
+
+    variables.num1 = 0;
+    variables.num2 = 0;
+    variables.operator = '';
+    clickedTrue = false;
+
+});
+
+delBtn.addEventListener('click', () => {
+
+    display.textContent = display.textContent.slice(0,-1);
+
+});
+
+
+
+
+
+
+
 
 
 
