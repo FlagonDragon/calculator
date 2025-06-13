@@ -104,16 +104,6 @@ numbers.forEach((number) => {
                 variables.num2 = +display.textContent;
         };
 
-        if (!(display.textContent.includes('.'))) {
-
-            decimal.textContent = '.';
-
-        } else if (display.textContent.includes('.')) {
-        
-            decimal.disabled = true;
-
-        };
-
     });
   
 });
@@ -157,6 +147,14 @@ clear.addEventListener('click', () => {
 delBtn.addEventListener('click', () => {
 
     display.textContent = display.textContent.slice(0,-1);
+
+});
+
+decimal.addEventListener('click', () => {
+
+    if (!(display.textContent.includes('.'))) {
+        display.textContent += decimal.textContent;
+    }
 
 });
 
