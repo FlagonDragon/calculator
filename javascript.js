@@ -56,7 +56,6 @@ variables = {num1: 0, num2: 0, operator: '', result: 0, lastOperator: ''};
     variables.num2 = 0;
     variables.operator = '';
     variables.result = 0;
-
     variables.lastOperator = '';
 
 
@@ -149,9 +148,6 @@ equal.addEventListener('click', () => {
 
     variables.result = display.textContent;
 
-    variables.num1 = 0;
-    variables.num2= 0;
-    variables.operator = '';
     clickedTrue = 'cake';
 
 });
@@ -164,6 +160,7 @@ clear.addEventListener('click', () => {
     variables.num2 = 0;
     variables.operator = '';
     variables.result = 0;
+    variables.lastOperator = '';
     clickedTrue = 'cake';
 
 });
