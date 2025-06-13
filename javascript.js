@@ -50,12 +50,14 @@ function divide(a,b) {
 
 // variables below
 
-variables = {num1: 0, num2: 0, operator: '', result: 0};
+variables = {num1: 0, num2: 0, operator: '', result: 0, lastOperator: ''};
 
     variables.num1 = 0;
     variables.num2 = 0;
     variables.operator = '';
     variables.result = 0;
+
+    variables.lastOperator = '';
 
 
 // variables above
@@ -96,7 +98,7 @@ numbers.forEach((number) => {
 
     number.addEventListener('click', () => {
 
-        if (display.textContent === variables.operator || display.textContent === variables.result) {
+        if (display.textContent == variables.operator || display.textContent == variables.result) {
             display.textContent = '';
         };
     
@@ -110,6 +112,7 @@ numbers.forEach((number) => {
             case 'biscuit':
                 // alert('case biscuit')
                 variables.num2 = +display.textContent;
+                variables.lastOperator = variables.operator;
                 break;
         };
 
@@ -129,7 +132,7 @@ operators.forEach((operator) => {
 
     if (variables.num1 != 0 && variables.num2 != 0) {
  
-        display.textContent = operate(variables.num1,variables.num2,variables.operator);
+        display.textContent = operate(variables.num1,variables.num2,variables.lastOperator);
 
         variables.result = +display.textContent;
         variables.num1 = +variables.result;
@@ -191,6 +194,7 @@ num1Counter = document.querySelector('#num1Counter');
 num2Counter = document.querySelector('#num2Counter');
 operatorCounter = document.querySelector('#operatorCounter');
 resultCounter = document.querySelector('#resultCounter');
+lastOperatorCounter = document.querySelector('#lastOperatorCounter');
 
 buttons = document.querySelectorAll('button');
 
@@ -205,6 +209,8 @@ buttons = document.querySelectorAll('button');
             operatorCounter.textContent = `operator = ${variables.operator}`;
 
             resultCounter.textContent =`result = ${variables.result}`;
+
+            lastOperatorCounter.textContent = `lastOperator = ${variables.lastOperator}`;
 
         });
         
