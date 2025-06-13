@@ -4,7 +4,7 @@ function add(a,b) {
 
     console.log(`Adding ${a}+${b}:`);
     
-    return a + b;
+    return +a + +b;
 
 };
 
@@ -14,7 +14,7 @@ function substract(a,b) {
 
     console.log(`Substracting ${a}-${b}:`);
     
-    return a - b;
+    return +a - +b;
 
 };
 
@@ -24,7 +24,7 @@ function multiply(a,b) {
 
     console.log(`Multiplying ${a}*${b}:`);
     
-    return a * b;
+    return +a * +b;
 
 };
 
@@ -38,7 +38,7 @@ function divide(a,b) {
         alert('?????')
         return 'stop it.'
     } else {
-        return a / b;
+        return +a / +b;
     }
     
 
@@ -50,7 +50,12 @@ function divide(a,b) {
 
 // variables below
 
-variables = {num1: 0, num2: 0, operator: ''};
+variables = {num1: 0, num2: 0, operator: '', result: 0};
+
+    variables.num1 = 0;
+    variables.num2 = 0;
+    variables.operator = '';
+    variables.result = 0;
 
 
 // variables above
@@ -85,23 +90,27 @@ delBtn = document.querySelector('#delBtn');
 decimal = document.querySelector('#decimal');
 
 
-clickedTrue = false;
+clickedTrue = 'cake';
 
 numbers.forEach((number) => {
 
     number.addEventListener('click', () => {
 
-        if (display.textContent === variables.operator) {
+        if (display.textContent === variables.operator || display.textContent === variables.result) {
             display.textContent = '';
         };
     
         display.textContent += number.textContent;
 
         switch (clickedTrue) {
-            case false:
+            case 'cake':
+                // alert('case cake')
                 variables.num1 = +display.textContent;
-            case true:
+                break;
+            case 'biscuit':
+                // alert('case biscuit')
                 variables.num2 = +display.textContent;
+                break;
         };
 
     });
@@ -112,11 +121,20 @@ operators.forEach((operator) => {
 
     operator.addEventListener('click', () => {
 
-    clickedTrue = true
+    clickedTrue = 'biscuit'
 
     variables.operator = operator.textContent;
 
     display.textContent = variables.operator;
+
+    if (variables.num1 != 0 && variables.num2 != 0) {
+ 
+        display.textContent = operate(variables.num1,variables.num2,variables.operator);
+
+        variables.result = +display.textContent;
+        variables.num1 = +variables.result;
+
+    };
     
     });
   
@@ -126,10 +144,12 @@ equal.addEventListener('click', () => {
 
     display.textContent = operate(variables.num1,variables.num2,variables.operator);
 
+    variables.result = display.textContent;
+
     variables.num1 = 0;
     variables.num2= 0;
     variables.operator = '';
-    clickedTrue = false;
+    clickedTrue = 'cake';
 
 });
 
@@ -140,7 +160,8 @@ clear.addEventListener('click', () => {
     variables.num1 = 0;
     variables.num2 = 0;
     variables.operator = '';
-    clickedTrue = false;
+    variables.result = 0;
+    clickedTrue = 'cake';
 
 });
 
@@ -161,10 +182,32 @@ decimal.addEventListener('click', () => {
 
 
 
-
-
-
-
-
-
 // functions above
+
+// scoreboard below
+
+scoreboard = document.querySelector('.scoreboard');
+num1Counter = document.querySelector('#num1Counter');
+num2Counter = document.querySelector('#num2Counter');
+operatorCounter = document.querySelector('#operatorCounter');
+resultCounter = document.querySelector('#resultCounter');
+
+buttons = document.querySelectorAll('button');
+
+    buttons.forEach(button => {
+
+        button.addEventListener('click', () => {
+
+            num1Counter.textContent = `num1 = ${variables.num1}`;
+            
+            num2Counter.textContent = `num2 = ${variables.num2}`;
+
+            operatorCounter.textContent = `operator = ${variables.operator}`;
+
+            resultCounter.textContent =`result = ${variables.result}`;
+
+        });
+        
+    });
+
+// scoreboard above
