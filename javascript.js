@@ -82,6 +82,7 @@ switch (operator) {
 
 console.log(operate(400,500,'*'));
 
+body = document.querySelector('body')
 display = document.querySelector('.display');
 numbers = document.querySelectorAll('.number');
 operators = document.querySelectorAll('.operator');
@@ -215,3 +216,22 @@ buttons = document.querySelectorAll('button');
     });
 
 // scoreboard above
+
+// key support below
+
+body.addEventListener("keypress", (event) => {
+
+    buttons.forEach(button => {
+
+        if (event.key == button.textContent) {
+            button.click();
+        } 
+        // else if (event.key == 'Enter') {
+        //     equal.click();
+        // };
+        
+    });
+  
+});
+
+// key support above
