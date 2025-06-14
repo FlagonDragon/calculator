@@ -50,10 +50,10 @@ function divide(a,b) {
 
 // variables below
 
-variables = {num1: 0, num2: 0, operator: '', result: 0, lastOperator: ''};
+variables = {num1: 'start', num2: 'start', operator: '', result: 0, lastOperator: ''};
 
-    variables.num1 = 0;
-    variables.num2 = 0;
+    variables.num1 = 'start';
+    variables.num2 = 'start';
     variables.operator = '';
     variables.result = 0;
     variables.lastOperator = '';
@@ -129,7 +129,7 @@ operators.forEach((operator) => {
 
     display.textContent = variables.operator;
 
-    if (variables.num1 != 0 && variables.num2 != 0) {
+    if (variables.num1 != 'start' && variables.num2 != 'start') {
  
         display.textContent = operate(variables.num1,variables.num2,variables.lastOperator);
 
@@ -156,8 +156,8 @@ clear.addEventListener('click', () => {
 
     display.textContent = '';
 
-    variables.num1 = 0;
-    variables.num2 = 0;
+    variables.num1 = 'start';
+    variables.num2 = 'start';
     variables.operator = '';
     variables.result = 0;
     variables.lastOperator = '';
@@ -178,9 +178,6 @@ decimal.addEventListener('click', () => {
     }
 
 });
-
-
-
 
 // functions above
 
@@ -208,6 +205,10 @@ buttons = document.querySelectorAll('button');
             resultCounter.textContent =`result = ${variables.result}`;
 
             lastOperatorCounter.textContent = `lastOperator = ${variables.lastOperator}`;
+
+            if (display.textContent.length > 16) {
+                display.textContent = display.textContent.slice(0,15);
+            }
 
         });
         
