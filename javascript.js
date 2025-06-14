@@ -206,8 +206,8 @@ buttons = document.querySelectorAll('button');
 
             lastOperatorCounter.textContent = `lastOperator = ${variables.lastOperator}`;
 
-            if (display.textContent.length > 16) {
-                display.textContent = display.textContent.slice(0,15);
+            if (display.textContent.length > 13) {
+                display.textContent = display.textContent.slice(0,13);
             }
 
         });
