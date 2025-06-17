@@ -1,12 +1,26 @@
 * {
     box-sizing: border-box;
+    background-color: black;
+}
+
+.container #top {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    /* border: 4px solid red; */
+    height: min-content;
+    margin: 80px;
+}
+
+#slogan {
+    font-size: 40px;
+    color: gold;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 4px solid pink
 }
 
 .calculator {
@@ -14,7 +28,7 @@
     flex-direction: column;
     border: 2px solid hotpink;
     background-color: peachpuff ;
-    margin: 40px;
+    margin-bottom: 60px;
     padding: 15px;
     width: 400px;
     height: 650px;
@@ -42,20 +56,33 @@
 .buttons-container {
     display: flex;
     flex-direction: column;
+    background-color: peachpuff ;
     border: 2px solid transparent;
     margin: 5px;
+    margin-top: 20px;
 }
 
 .firstRow {
     display: flex;
     justify-content: end;
     margin-right: 5px;
+    background-color: peachpuff ;
+
+}
+
+.firstRow div {
+    background-color: peachpuff;
+}
+
+.otherRows {
+    background-color: peachpuff;
 }
 
 .otherRows div {
     display: flex;
     justify-content: space-between;
     margin: 5px;
+    background-color: peachpuff ;
 }
 
 .buttons-container button {
@@ -101,3 +128,4 @@
     font-weight: bold;
     width: 175px;
 }
+

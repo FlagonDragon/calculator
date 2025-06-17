@@ -208,15 +208,15 @@ buttons = document.querySelectorAll('button');
 
         button.addEventListener('click', () => {
 
-            num1Counter.textContent = `num1 = ${variables.num1}`;
+            // num1Counter.textContent = `num1 = ${variables.num1}`;
             
-            num2Counter.textContent = `num2 = ${variables.num2}`;
+            // num2Counter.textContent = `num2 = ${variables.num2}`;
 
-            operatorCounter.textContent = `operator = ${variables.operator}`;
+            // operatorCounter.textContent = `operator = ${variables.operator}`;
 
-            resultCounter.textContent =`result = ${variables.result}`;
+            // resultCounter.textContent =`result = ${variables.result}`;
 
-            lastOperatorCounter.textContent = `lastOperator = ${variables.lastOperator}`;
+            // lastOperatorCounter.textContent = `lastOperator = ${variables.lastOperator}`;
 
             if (display.textContent.length > 13) {
                 display.textContent = display.textContent.slice(0,13);
@@ -234,13 +234,13 @@ body.addEventListener("keydown", (event) => {
 
     console.log(`key=${event.key},code=${event.code}`);
 
-     if (event.code == 'Enter') {
+     if (event.key == 'Enter') {
 
         event.preventDefault()
 
         equal.click();
     
-     } else if (event.code == 'Backspace') {
+     } else if (event.key == 'Backspace') {
 
         delBtn.click();
 
