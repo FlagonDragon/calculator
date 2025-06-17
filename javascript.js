@@ -170,6 +170,12 @@ delBtn.addEventListener('click', () => {
 
     display.textContent = display.textContent.slice(0,-1);
 
+    if (clickedTrue == 'cake') {
+        variables.num1 = +display.textContent;
+    } else if (clickedTrue == 'biscuit' && variables.num2 != 'start') {
+        variables.num2 = +display.textContent;
+    }
+
 });
 
 decimal.addEventListener('click', () => {
@@ -219,17 +225,28 @@ buttons = document.querySelectorAll('button');
 
 // key support below
 
-body.addEventListener("keypress", (event) => {
+body.addEventListener("keydown", (event) => {
+
+    console.log(`key=${event.key},code=${event.code}`);
+
+     if (event.code == 'Enter') {
+
+        event.preventDefault()
+
+        equal.click();
+    
+     } else if (event.code == 'Backspace') {
+
+        delBtn.click();
+
+     };
 
     buttons.forEach(button => {
 
         if (event.key == button.textContent) {
             button.click();
         } 
-        // else if (event.key == 'Enter') {
-        //     equal.click();
-        // };
-        
+               
     });
   
 });
