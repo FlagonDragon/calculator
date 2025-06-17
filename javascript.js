@@ -136,6 +136,7 @@ operators.forEach((operator) => {
 
         variables.result = +display.textContent;
         variables.num1 = +variables.result;
+        variables.num2 = 0;
 
     };
     
@@ -219,7 +220,7 @@ buttons = document.querySelectorAll('button');
 
             if (display.textContent.length > 13) {
                 display.textContent = display.textContent.slice(0,13);
-            }
+            };
 
         });
         
