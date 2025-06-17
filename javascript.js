@@ -170,6 +170,10 @@ delBtn.addEventListener('click', () => {
 
     display.textContent = display.textContent.slice(0,-1);
 
+    if (clickedTrue == 'cake' && variables.num2 != 'start') {
+        variables.num2 = 0;
+    }
+
     if (clickedTrue == 'cake') {
         variables.num1 = +display.textContent;
     } else if (clickedTrue == 'biscuit' && variables.num2 != 'start') {
