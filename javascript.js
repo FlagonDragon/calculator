@@ -221,6 +221,7 @@ buttons = document.querySelectorAll('button');
             // lastOperatorCounter.textContent = `lastOperator = ${variables.lastOperator}`;
 
             if (display.textContent.length > 13) {
+                delBtn.click();
                 display.textContent = display.textContent.slice(0,13);
             };
 
